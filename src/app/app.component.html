@@ -1,0 +1,39 @@
+<div class="the-container">
+    <h1>Sorted Countries by Degree</h1>
+    <button (click)="onShowHighest()">Show Highest Only</button>
+    <button (click)="onShowAll()">Show All Countries</button>
+    <app-country *ngFor="let country of countriesDegree" [countryDegree]="country"></app-country>
+    
+    <div style="margin-top: 50px;">
+        <h1>Sorted Missions by Date</h1>
+        <p>
+            <button (click)="onAscending()">Acending Order</button>
+            <button (click)="onDescending()">Descending Order</button>
+        </p>
+        <table class="header-table">
+            <thead>
+                <tr>
+                    <th>Agent ID</th>
+                    <th>Country</th>
+                    <th>Address</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <td class="ex-border" colspan=4>
+                        {{ missions.length }} Missions
+                    </td>
+                </tr>
+            </tfoot>
+            <tbody>
+                <tr *ngFor="let mission of missions; let i = index">
+                    <td [ngClass]="{'ex-border': i===0}">{{ mission.agent }}</td>
+                    <td [ngClass]="{'ex-border': i===0}">{{ mission.country }}</td>
+                    <td [ngClass]="{'ex-border': i===0}">{{ mission.address }}</td>
+                    <td [ngClass]="{'ex-border': i===0}">{{ mission.date }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
